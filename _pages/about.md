@@ -21,6 +21,8 @@ I am a PhD Candidate in the <a href="https://liu.se/en/organisation/liu/ida" tar
 * Stochastic Modeling & Performance Analysis
 * Signal Processing
 
+I am always open to collaborations in applied and industrial research—please feel free to reach out!
+
 <style>
   .page__content ul {
     margin-top: 0.3em;
