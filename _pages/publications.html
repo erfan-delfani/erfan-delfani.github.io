@@ -8,16 +8,6 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  .page__content ol,
-  .page__content ul,
-  .page__content li,
-  .page__content p {
-    text-align: justify !important;
-    text-justify: inter-word !important;
-  }
-</style>
-
-<style>
   .pub-category {
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -27,24 +17,29 @@ author_profile: true
     color: #222;
   }
   .pub-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
   }
   .pub-item {
-    margin-bottom: 1.2rem;
-    line-height: 1.6;
-    font-size: 0.95rem;
-    position: relative;
-    padding-left: 3.2rem;
-    color: #333;
+    margin-bottom: 1.2rem !important;
+    line-height: 1.6 !important;
+    font-size: 0.95rem !important;
+    position: relative !important;
+    padding-left: 3.2rem !important;
+    color: #333 !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    text-align-last: left !important;
   }
   .pub-number {
     position: absolute;
     left: 0;
+    top: 0;
     font-weight: bold;
     color: #222;
     width: 2.8rem;
+    text-align: left !important;
   }
   .pub-journal {
     font-style: italic;
@@ -55,7 +50,6 @@ author_profile: true
 {% assign magazines = site.data.publications | where: "type", "magazine" %}
 {% assign conferences = site.data.publications | where: "type", "conference" %}
 
-<!-- 1. Journal Articles -->
 {% if journals.size > 0 %}
 <h2 class="pub-category">Journal Papers</h2>
 <ul class="pub-list">
@@ -64,15 +58,12 @@ author_profile: true
     {% assign num = total | minus: forloop.index0 %}
     <li class="pub-item">
       <span class="pub-number">[{{ num }}]</span>
-      {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, 
-      “{{ pub.title }},” 
-      <span class="pub-journal">{{ pub.venue }}</span>{% if pub.volume %}, vol. {{ pub.volume }}{% endif %}{% if pub.number %}, no. {{ pub.number }}{% endif %}{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
+      {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, “{{ pub.title }},” <span class="pub-journal">{{ pub.venue }}</span>{% if pub.volume %}, vol. {{ pub.volume }}{% endif %}{% if pub.number %}, no. {{ pub.number }}{% endif %}{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
     </li>
   {% endfor %}
 </ul>
 {% endif %}
 
-<!-- 2. Magazine Articles -->
 {% if magazines.size > 0 %}
 <h2 class="pub-category">Magazine Articles</h2>
 <ul class="pub-list">
@@ -81,15 +72,12 @@ author_profile: true
     {% assign num = total | minus: forloop.index0 %}
     <li class="pub-item">
       <span class="pub-number">[{{ num }}]</span>
-      {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, 
-      “{{ pub.title }},” 
-      <span class="pub-journal">{{ pub.venue }}</span>{% if pub.volume %}, vol. {{ pub.volume }}{% endif %}{% if pub.number %}, no. {{ pub.number }}{% endif %}{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
+      {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, “{{ pub.title }},” <span class="pub-journal">{{ pub.venue }}</span>{% if pub.volume %}, vol. {{ pub.volume }}{% endif %}{% if pub.number %}, no. {{ pub.number }}{% endif %}{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
     </li>
   {% endfor %}
 </ul>
 {% endif %}
 
-<!-- 3. Conference Proceedings -->
 {% if conferences.size > 0 %}
 <h2 class="pub-category">Conference Papers</h2>
 <ul class="pub-list">
@@ -98,9 +86,7 @@ author_profile: true
     {% assign num = total | minus: forloop.index0 %}
     <li class="pub-item">
       <span class="pub-number">[{{ num }}]</span>
-      {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, 
-      “{{ pub.title }},” 
-      <span class="pub-journal">{{ pub.venue }}</span>{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
+      {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, “{{ pub.title }},” <span class="pub-journal">{{ pub.venue }}</span>{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
     </li>
   {% endfor %}
 </ul>
