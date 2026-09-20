@@ -5,18 +5,23 @@ permalink: /background/
 author_profile: true
 ---
 
-## Education
-
 <style>
+  /* حذف خط افقی زیر تیتر و کاهش حاشیه‌ها */
+  .page__content h2 {
+    border-bottom: none !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.4rem !important;
+    padding-bottom: 0 !important;
+  }
   .cv-item {
-    margin-bottom: 0.9rem;
-    line-height: 1.4;
+    margin-bottom: 0.65rem;
+    line-height: 1.35;
   }
   .cv-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    font-size: 1rem;
+    font-size: 0.98rem;
     font-weight: 600;
     color: #222;
   }
@@ -27,10 +32,12 @@ author_profile: true
   }
   .cv-sub {
     color: #444;
-    font-size: 0.9rem;
-    margin-top: 0.1rem;
+    font-size: 0.88rem;
+    margin-top: 0.05rem;
   }
 </style>
+
+## Education
 
 <div class="cv-item">
   <div class="cv-header">
