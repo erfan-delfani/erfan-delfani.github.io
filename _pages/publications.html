@@ -9,11 +9,11 @@ author_profile: true
 
 <style>
   .pub-category {
-    margin-top: 2.2rem;
-    margin-bottom: 1.2rem;
-    font-size: 1.3rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
     border-bottom: 2px solid #eaeaea;
-    padding-bottom: 0.4rem;
+    padding-bottom: 0.35rem;
     color: #222;
   }
   .pub-list {
@@ -38,6 +38,9 @@ author_profile: true
     font-weight: bold;
     color: #222;
   }
+  .pub-journal {
+    font-style: italic;
+  }
 </style>
 
 <div id="loading" style="font-size: 0.95rem; color: #666; margin: 1.5rem 0;">Loading publications...</div>
@@ -57,22 +60,21 @@ author_profile: true
   <ol class="pub-list" id="magazine-list"></ol>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bibtex-parse-js@0.0.24/bibtex-js.min.js"></script>
 <script>
   function formatIEEEAuthor(authorsStr) {
     if (!authorsStr) return '';
-    const authors = authorsStr.split(' and ').map(a => a.trim());
+    const authors = authorsStr.split(/\s+and\s+/i).map(a => a.trim());
     const formatted = authors.map(author => {
       if (author.includes(',')) {
         const parts = author.split(',');
         const last = parts[0].trim();
         const first = parts[1].trim();
-        const initials = first.split(' ').map(n => n[0] ? n[0] + '.' : '').join(' ');
-        return initials + ' ' + last;
+        const initials = first.split(/\s+/).map(n => n[0] ? n[0].toUpperCase() + '.' : '').join(' ');
+        return (initials ? initials + ' ' : '') + last;
       } else {
-        const parts = author.split(' ');
+        const parts = author.split(/\s+/);
         const last = parts.pop();
-        const initials = parts.map(n => n[0] ? n[0] + '.' : '').join(' ');
+        const initials = parts.map(n => n[0] ? n[0].toUpperCase() + '.' : '').join(' ');
         return (initials ? initials + ' ' : '') + last;
       }
     });
@@ -81,26 +83,57 @@ author_profile: true
     return formatted.slice(0, -1).join(', ') + ', and ' + formatted[formatted.length - 1];
   }
 
-  fetch('/papers.bib')
+  function parseSimpleBibTeX(bibText) {
+    const entries = [];
+    const entryRegex = /@(\w+)\s*\{([^,]+),([\s\S]*?)(?=\n@|\n*$)/g;
+    let match;
+
+    while ((match = entryRegex.exec(bibText)) !== null) {
+      const type = match[1].toLowerCase();
+      const citeKey = match[2].trim();
+      const body = match[3];
+
+      const tags = {};
+      const fieldRegex = /([a-zA-Z]+)\s*=\s*(?:\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}|"([^"]*)"|(\d+))/g;
+      let fieldMatch;
+
+      while ((fieldMatch = fieldRegex.exec(body)) !== null) {
+        const key = fieldMatch[1].toLowerCase();
+        const value = fieldMatch[2] || fieldMatch[3] || fieldMatch[4] || '';
+        tags[key] = value.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim();
+      }
+
+      entries.push({ type, citeKey, tags });
+    }
+    return entries;
+  }
+
+  const bibPath = "{{ '/papers.bib' | relative_url }}";
+
+  fetch(bibPath)
     .then(response => {
-      if (!response.ok) throw new Error('فایل papers.bib پیدا نشد');
+      if (!response.ok) {
+        throw new Error('Failed to load papers.bib (Status: ' + response.status + ')');
+      }
       return response.text();
     })
     .then(bibData => {
+      const entries = parseSimpleBibTeX(bibData);
       const loader = document.getElementById('loading');
       if (loader) loader.style.display = 'none';
-      
-      const parsed = BibtexParser(bibData);
 
-      parsed.forEach(entry => {
-        const tags = {};
-        for (let key in entry.entryTags) {
-          tags[key.toLowerCase()] = entry.entryTags[key].replace(/[{}]/g, '');
-        }
+      if (!entries.length) {
+        loader.style.display = 'block';
+        loader.innerText = 'No publications found in papers.bib.';
+        return;
+      }
 
+      entries.forEach(entry => {
+        const tags = entry.tags;
         const author = formatIEEEAuthor(tags.author);
-        const title = tags.title ? `“${tags.title.trim().replace(/[,.]$/, '')},” ` : '';
-        const journal = tags.journal || tags.booktitle || '';
+        const rawTitle = (tags.title || '').replace(/[\{\}]/g, '').trim().replace(/[,.]$/, '');
+        const title = rawTitle ? `“${rawTitle},” ` : '';
+        const journal = (tags.journal || tags.booktitle || '').replace(/[\{\}]/g, '').trim();
         const volume = tags.volume ? `vol. ${tags.volume}, ` : '';
         const number = tags.number ? `no. ${tags.number}, ` : '';
         const pages = tags.pages ? `pp. ${tags.pages.replace('--', '–')}, ` : '';
@@ -108,10 +141,10 @@ author_profile: true
 
         const li = document.createElement('li');
         li.className = 'pub-item';
-        li.innerHTML = `${author}, ${title}<em>${journal}</em>, ${volume}${number}${pages}${year}`;
+        li.innerHTML = `${author}, ${title}<span class="pub-journal">${journal}</span>, ${volume}${number}${pages}${year}`;
 
-        const type = entry.entryType.toLowerCase();
-        const journalLower = (tags.journal || '').toLowerCase();
+        const type = entry.type;
+        const journalLower = journal.toLowerCase();
 
         if (type === 'article') {
           if (journalLower.includes('magazine')) {
@@ -129,6 +162,9 @@ author_profile: true
     })
     .catch(err => {
       const loader = document.getElementById('loading');
-      if (loader) loader.innerText = 'خطا در بارگذاری مقالات: ' + err.message;
+      if (loader) {
+        loader.innerText = 'Error loading publications: ' + err.message;
+        loader.style.color = '#c00';
+      }
     });
 </script>
