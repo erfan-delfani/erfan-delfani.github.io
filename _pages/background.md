@@ -29,16 +29,16 @@ author_profile: true
 </style>
 
 <div class="cv-line">
-  <span><strong>Ph.D. Candidate in Computer Science</strong>, Linköping University, Sweden</span>
+  <span><strong>Ph.D. Candidate in Computer and Information Science</strong>, Linköping University, Linköping, Sweden</span>
   <span class="cv-date">2024 – Present</span>
 </div>
 
 <div class="cv-line">
-  <span><strong>M.Sc. in Communication Systems</strong>, Sharif University of Technology, Iran (GPA: 18.55/20)</span>
+  <span><strong>M.Sc. in Telecommunication Systems</strong>, Sharif University of Technology, Tehran, Iran (GPA: 18.55/20)</span>
   <span class="cv-date">2012 – 2014</span>
 </div>
 
 <div class="cv-line">
-  <span><strong>B.Sc. in Electrical Engineering</strong>, Razi University, Iran (GPA: 18.26/20, Rank 1)</span>
+  <span><strong>B.Sc. in Electrical Engineering</strong>, Razi University, Kermanshah, Iran (GPA: 18.26/20, Rank 1)</span>
   <span class="cv-date">2008 – 2012</span>
 </div>
