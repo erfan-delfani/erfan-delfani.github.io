@@ -39,6 +39,6 @@ author_profile: true
 </div>
 
 <div class="cv-line">
-  <span><strong>B.Sc. in Electrical Engineering</strong>, Razi University, Kermanshah, Iran</span>
+  <span><strong>B.Sc. in Electrical Engineering (Electronics)</strong>, Razi University, Kermanshah, Iran</span>
   <span class="cv-date">2008 – 2012</span>
 </div>
