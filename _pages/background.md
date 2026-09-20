@@ -34,11 +34,11 @@ author_profile: true
 </div>
 
 <div class="cv-line">
-  <span><strong>M.Sc. in Telecommunication Systems</strong>, Sharif University of Technology, Tehran, Iran (GPA: 18.55/20)</span>
+  <span><strong>M.Sc. in Telecommunication Systems</strong>, Sharif University of Technology, Tehran, Iran</span>
   <span class="cv-date">2012 – 2014</span>
 </div>
 
 <div class="cv-line">
-  <span><strong>B.Sc. in Electrical Engineering</strong>, Razi University, Kermanshah, Iran (GPA: 18.26/20, Rank 1)</span>
+  <span><strong>B.Sc. in Electrical Engineering</strong>, Razi University, Kermanshah, Iran</span>
   <span class="cv-date">2008 – 2012</span>
 </div>
