@@ -14,7 +14,7 @@ redirect_from:
   }
 </style>
 
-I am a PhD Candidate in the Department of Computer and Information Science at Linköping University, Sweden, supported by the EU Marie Skłodowska-Curie Actions (MSCA) ELIXIRION doctoral network. With a background in telecommunication systems and signal processing, my current research focuses on semantic-aware communication approaches aimed at enhancing energy and cost efficiency in next-generation IoT networks. My research interests include:
+I am a PhD Candidate in the <a href="https://liu.se/en/organisation/liu/ida" target="_blank" rel="noopener noreferrer">Department of Computer and Information Science</a> at Linköping University, Sweden, supported by the EU Marie Skłodowska-Curie Actions (MSCA) <a href="https://elixirion-mc.eu/" target="_blank" rel="noopener noreferrer">ELIXIRION</a> project. With a background in telecommunication systems and signal processing, my research focuses on semantics-aware communication approaches to enhance energy and cost efficiency in next-generation IoT networks, under the supervision of <a href="https://pappas-nikolaos.github.io/" target="_blank" rel="noopener noreferrer">Prof. Nikolaos Pappas</a>. My research interests include:
 * Semantics-Aware Communication
 * Energy- and Bandwidth-Constrained IoT Systems
 * Integrated Terrestrial and Non-Terrestrial Networks
