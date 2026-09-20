@@ -5,8 +5,6 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% include base_path %}
-
 <style>
   .pub-category {
     margin-top: 2rem;
@@ -41,7 +39,7 @@ author_profile: true
   }
 </style>
 
-<div id="loading" style="font-size: 0.95rem; color: #666; margin: 1.5rem 0;">Loading publications...</div>
+<div id="pub-status" style="font-size: 0.95rem; color: #666; margin: 1.5rem 0;">Loading publications...</div>
 
 <div id="journals-section" style="display:none;">
   <h2 class="pub-category">Journal Articles</h2>
@@ -77,8 +75,7 @@ author_profile: true
         formattedName = (initials ? initials + ' ' : '') + last;
       }
 
-      // Bold your name (matches "E. Delfani" or "Erfan Delfani")
-      if (/^(e\.\s*delfani|erfan\s*delfani)$/i.test(formattedName)) {
+      if (/^(e\.\s*delfani|erfan\s*delfani)$/i.test(formattedName.replace(/\./g, '').trim())) {
         return `<strong>${formattedName}</strong>`;
       }
       return formattedName;
@@ -91,7 +88,7 @@ author_profile: true
 
   function parseSimpleBibTeX(bibText) {
     const entries = [];
-    const entryRegex = /@(\w+)\s*\{([^,]+),([\s\S]*?)(?=\n@|\n*$)/g;
+    const entryRegex = /@(\w+)\s*\{\s*([^,]+),([\s\S]*?)(?=\n\s*@|\s*$)/g;
     let match;
 
     while ((match = entryRegex.exec(bibText)) !== null) {
@@ -100,7 +97,7 @@ author_profile: true
       const body = match[3];
 
       const tags = {};
-      const fieldRegex = /([a-zA-Z]+)\s*=\s*(?:\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}|"([^"]*)"|(\d+))/g;
+      const fieldRegex = /([a-zA-Z]+)\s*=\s*(?:\{([\s\S]*?)\}|"([\s\S]*?)"|(\d+))/g;
       let fieldMatch;
 
       while ((fieldMatch = fieldRegex.exec(body)) !== null) {
@@ -114,25 +111,31 @@ author_profile: true
     return entries;
   }
 
-  const bibPath = "{{ '/papers.bib' | relative_url }}";
+  // Path resolution for root-level papers.bib
+  const bibUrl = new URL('papers.bib', window.location.origin + window.location.pathname.replace(/\/publications\/?$/, '/')).href;
 
-  fetch(bibPath)
+  fetch(bibUrl)
     .then(response => {
       if (!response.ok) {
-        throw new Error('Failed to load papers.bib (Status: ' + response.status + ')');
+        // Fallback to absolute root if nested path failed
+        return fetch('/papers.bib');
       }
-      return response.text();
+      return response;
+    })
+    .then(res => {
+      if (!res.ok) throw new Error('papers.bib could not be loaded (Status ' + res.status + ')');
+      return res.text();
     })
     .then(bibData => {
       const entries = parseSimpleBibTeX(bibData);
-      const loader = document.getElementById('loading');
-      if (loader) loader.style.display = 'none';
+      const statusEl = document.getElementById('pub-status');
 
-      if (!entries.length) {
-        loader.style.display = 'block';
-        loader.innerText = 'No publications found in papers.bib.';
+      if (!entries || entries.length === 0) {
+        statusEl.innerText = 'No entries found in papers.bib. Please check the file formatting.';
         return;
       }
+
+      statusEl.style.display = 'none';
 
       const groups = {
         journals: [],
@@ -187,10 +190,10 @@ author_profile: true
       renderList(groups.magazines, 'magazines-section', 'magazine-list');
     })
     .catch(err => {
-      const loader = document.getElementById('loading');
-      if (loader) {
-        loader.innerText = 'Error loading publications: ' + err.message;
-        loader.style.color = '#c00';
+      const statusEl = document.getElementById('pub-status');
+      if (statusEl) {
+        statusEl.innerText = 'Error: ' + err.message + '. Please ensure papers.bib exists at repository root.';
+        statusEl.style.color = '#d9534f';
       }
     });
 </script>
