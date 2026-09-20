@@ -6,34 +6,32 @@ author_profile: true
 ---
 
 <style>
-  /* حذف خط افقی زیر تیتر و کاهش حاشیه‌ها */
-  .page__content h2 {
-    border-bottom: none !important;
-    margin-top: 0.5rem !important;
-    margin-bottom: 0.4rem !important;
-    padding-bottom: 0 !important;
-  }
   .cv-item {
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.45rem;
     line-height: 1.35;
   }
   .cv-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #222;
   }
   .cv-date {
     font-size: 0.85rem;
     color: #666;
-    font-weight: 500;
+    font-weight: normal;
   }
   .cv-sub {
     color: #444;
     font-size: 0.88rem;
     margin-top: 0.05rem;
+  }
+  .page__content h2 {
+    border-bottom: none !important;
+    margin-bottom: 0.4rem !important;
+    padding-bottom: 0 !important;
   }
 </style>
 
