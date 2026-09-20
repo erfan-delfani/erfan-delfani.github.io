@@ -18,25 +18,23 @@ author_profile: true
   }
   .pub-list {
     list-style: none;
-    counter-reset: pub-counter;
     padding-left: 0;
     margin: 0;
   }
   .pub-item {
-    counter-increment: pub-counter;
     margin-bottom: 1.2rem;
     line-height: 1.6;
     font-size: 0.95rem;
     position: relative;
-    padding-left: 3rem;
+    padding-left: 3.2rem;
     color: #333;
   }
-  .pub-item::before {
-    content: "[" counter(pub-counter) "]";
+  .pub-number {
     position: absolute;
     left: 0;
     font-weight: bold;
     color: #222;
+    width: 2.8rem;
   }
   .pub-journal {
     font-style: italic;
@@ -47,17 +45,17 @@ author_profile: true
 
 <div id="journals-section" style="display:none;">
   <h2 class="pub-category">Journal Articles</h2>
-  <ol class="pub-list" id="journal-list"></ol>
+  <ul class="pub-list" id="journal-list"></ul>
 </div>
 
 <div id="conferences-section" style="display:none;">
   <h2 class="pub-category">Conference Proceedings</h2>
-  <ol class="pub-list" id="conference-list"></ol>
+  <ul class="pub-list" id="conference-list"></ul>
 </div>
 
 <div id="magazines-section" style="display:none;">
   <h2 class="pub-category">Magazine Articles</h2>
-  <ol class="pub-list" id="magazine-list"></ol>
+  <ul class="pub-list" id="magazine-list"></ul>
 </div>
 
 <script>
@@ -128,6 +126,12 @@ author_profile: true
         return;
       }
 
+      const groups = {
+        journals: [],
+        conferences: [],
+        magazines: []
+      };
+
       entries.forEach(entry => {
         const tags = entry.tags;
         const author = formatIEEEAuthor(tags.author);
@@ -139,26 +143,40 @@ author_profile: true
         const pages = tags.pages ? `pp. ${tags.pages.replace('--', '–')}, ` : '';
         const year = tags.year ? tags.year + '.' : '';
 
-        const li = document.createElement('li');
-        li.className = 'pub-item';
-        li.innerHTML = `${author}, ${title}<span class="pub-journal">${journal}</span>, ${volume}${number}${pages}${year}`;
+        const itemHTML = `${author}, ${title}<span class="pub-journal">${journal}</span>, ${volume}${number}${pages}${year}`;
 
         const type = entry.type;
         const journalLower = journal.toLowerCase();
 
         if (type === 'article') {
           if (journalLower.includes('magazine')) {
-            document.getElementById('magazines-section').style.display = 'block';
-            document.getElementById('magazine-list').appendChild(li);
+            groups.magazines.push(itemHTML);
           } else {
-            document.getElementById('journals-section').style.display = 'block';
-            document.getElementById('journal-list').appendChild(li);
+            groups.journals.push(itemHTML);
           }
         } else if (type === 'inproceedings' || type === 'conference') {
-          document.getElementById('conferences-section').style.display = 'block';
-          document.getElementById('conference-list').appendChild(li);
+          groups.conferences.push(itemHTML);
         }
       });
+
+      function renderList(items, sectionId, listId) {
+        if (!items.length) return;
+        document.getElementById(sectionId).style.display = 'block';
+        const listElem = document.getElementById(listId);
+        const total = items.length;
+
+        items.forEach((content, index) => {
+          const number = total - index;
+          const li = document.createElement('li');
+          li.className = 'pub-item';
+          li.innerHTML = `<span class="pub-number">[${number}]</span>${content}`;
+          listElem.appendChild(li);
+        });
+      }
+
+      renderList(groups.journals, 'journals-section', 'journal-list');
+      renderList(groups.conferences, 'conferences-section', 'conference-list');
+      renderList(groups.magazines, 'magazines-section', 'magazine-list');
     })
     .catch(err => {
       const loader = document.getElementById('loading');
