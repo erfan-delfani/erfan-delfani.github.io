@@ -29,12 +29,12 @@ author:
   bio              : "PhD Candidate"
   location         : "Sweden"
   employer         : "Linköping University"
-  uri              : "https://liu.se/en/employee/erfde41"
+  uri              : #"https://liu.se/en/employee/erfde41"
   email            : "erfan.delfani@liu.se" 
 
   # Academic websites
   academia         : # URL
-  arxiv            : "https://arxiv.org/search/cs?searchtype=author&query=Delfani%2C+E"
+  arxiv            : #"https://arxiv.org/search/cs?searchtype=author&query=Delfani%2C+E"
   googlescholar    : "https://scholar.google.com/citations?user=AP-srOsAAAAJ&hl=en&oi=ao"
   inspire-hep      : # URL
   impactstory      : # URL
@@ -42,7 +42,7 @@ author:
   semantic         : # URL
   ssrn             : # URL
   pubmed           : # URL
-  researchgate     : "https://www.researchgate.net/profile/Erfan-Delfani?ev=hdr_xprf"
+  researchgate     : #"https://www.researchgate.net/profile/Erfan-Delfani?ev=hdr_xprf"
   scopus           : # URL
   zotero           : # URL
 
