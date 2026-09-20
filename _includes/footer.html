@@ -1,10 +1,29 @@
-{% include base_path %}
+#{% include base_path %}
 
-<footer class="page__footer" style="background-color: transparent !important; background: transparent !important; border-top: 1px solid #e5e5e5; margin-top: 3em; padding: 12px 0 !important; min-height: auto !important;">
-  <div class="page__footer-copyright" style="text-align: center; margin: 0 !important; font-size: 0.75rem; color: #888888 !important;">
-    &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }} &middot; Powered by Jekyll
-  </div>
-</footer>
+<style>
+  .page__footer {
+    background: transparent !important;
+    background-color: transparent !important;
+    border-top: 1px solid #e5e5e5 !important;
+    padding: 15px 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+  }
+  .page__footer footer {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .page__footer-copyright {
+    text-align: center !important;
+    margin: 0 !important;
+    font-size: 0.75rem !important;
+    color: #888888 !important;
+  }
+</style>
+
+<div class="page__footer-copyright">
+  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }} &middot; Powered by Jekyll
+</div>
 
 <!-- {% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
 <div class="page__footer-follow">
