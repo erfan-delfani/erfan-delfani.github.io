@@ -5,6 +5,8 @@ permalink: /publications/
 author_profile: true
 ---
 
+{% include base_path %}
+
 <style>
   .pub-category {
     margin-top: 2rem;
@@ -40,9 +42,10 @@ author_profile: true
 </style>
 
 {% assign journals = site.data.publications | where: "type", "journal" %}
-{% assign conferences = site.data.publications | where: "type", "conference" %}
 {% assign magazines = site.data.publications | where: "type", "magazine" %}
+{% assign conferences = site.data.publications | where: "type", "conference" %}
 
+<!-- 1. Journal Articles -->
 {% if journals.size > 0 %}
 <h2 class="pub-category">Journal Articles</h2>
 <ul class="pub-list">
@@ -59,22 +62,7 @@ author_profile: true
 </ul>
 {% endif %}
 
-{% if conferences.size > 0 %}
-<h2 class="pub-category">Conference Proceedings</h2>
-<ul class="pub-list">
-  {% assign total = conferences.size %}
-  {% for pub in conferences %}
-    {% assign num = total | minus: forloop.index0 %}
-    <li class="pub-item">
-      <span class="pub-number">[{{ num }}]</span>
-      {{ pub.authors | replace: "Erfan Delfani", "<strong>E. Delfani</strong>" | replace: "E. Delfani", "<strong>E. Delfani</strong>" }}, 
-      “{{ pub.title }},” 
-      <span class="pub-journal">{{ pub.venue }}</span>{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
-    </li>
-  {% endfor %}
-</ul>
-{% endif %}
-
+<!-- 2. Magazine Articles -->
 {% if magazines.size > 0 %}
 <h2 class="pub-category">Magazine Articles</h2>
 <ul class="pub-list">
@@ -86,6 +74,23 @@ author_profile: true
       {{ pub.authors | replace: "Erfan Delfani", "<strong>E. Delfani</strong>" | replace: "E. Delfani", "<strong>E. Delfani</strong>" }}, 
       “{{ pub.title }},” 
       <span class="pub-journal">{{ pub.venue }}</span>{% if pub.volume %}, vol. {{ pub.volume }}{% endif %}{% if pub.number %}, no. {{ pub.number }}{% endif %}{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<!-- 3. Conference Proceedings -->
+{% if conferences.size > 0 %}
+<h2 class="pub-category">Conference Proceedings</h2>
+<ul class="pub-list">
+  {% assign total = conferences.size %}
+  {% for pub in conferences %}
+    {% assign num = total | minus: forloop.index0 %}
+    <li class="pub-item">
+      <span class="pub-number">[{{ num }}]</span>
+      {{ pub.authors | replace: "Erfan Delfani", "<strong>E. Delfani</strong>" | replace: "E. Delfani", "<strong>E. Delfani</strong>" }}, 
+      “{{ pub.title }},” 
+      <span class="pub-journal">{{ pub.venue }}</span>{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
     </li>
   {% endfor %}
 </ul>
