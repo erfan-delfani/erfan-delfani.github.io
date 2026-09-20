@@ -1,15 +1,91 @@
+# ==========================================
+# Journal Articles
+# ==========================================
+- title: "From AoI to QVAoI: Query-Based Semantics-Aware Scheduling for Energy-Harvesting IoT Systems"
+  authors: "E. Delfani and N. Pappas"
+  venue: "IEEE Transactions on Communications"
+  year: "2026"
+  type: "journal"
+
+- title: "Semantics-aware updates from remote energy harvesting devices to interconnected LEO satellites"
+  authors: "E. Delfani and N. Pappas"
+  venue: "IEEE Communications Letters"
+  volume: "29"
+  number: "8"
+  pages: "1928-1932"
+  year: "2025"
+  type: "journal"
+
+- title: "Optimizing information freshness in constrained IoT systems: A token-based approach"
+  authors: "E. Delfani and N. Pappas"
+  venue: "IEEE Transactions on Communications"
+  volume: "73"
+  number: "8"
+  pages: "5848-5863"
+  year: "2024"
+  type: "journal"
+
+- title: "State-Aware Timeliness in Energy Harvesting IoT Systems Monitoring a Markovian Source"
+  authors: "E. Delfani, G. J. Stamatakis, and N. Pappas"
+  venue: "IEEE Transactions on Green Communications and Networking"
+  volume: "9"
+  number: "3"
+  pages: "977-990"
+  year: "2025"
+  type: "journal"
+
 - title: "Version age-optimal cached status updates in a gossiping network with energy harvesting sensor"
-  authors: "Erfan Delfani and Nikolaos Pappas"
+  authors: "E. Delfani and N. Pappas"
   venue: "IEEE Transactions on Communications"
   volume: "73"
   number: "4"
   pages: "2344-2360"
-  year: "2025"
+  year: "2024"
   type: "journal"
 
-- title: "Sample Conference Paper Title"
-  authors: "Erfan Delfani and Nikolaos Pappas"
-  venue: "IEEE International Conference on Communications (ICC)"
+# ==========================================
+# Magazine Articles
+# ==========================================
+- title: "Semantics-aware unified terrestrial non-terrestrial 6G networks"
+  authors: "E. Delfani, A. Mesodiakaki, L. Tassiulas, and N. Pappas"
+  venue: "IEEE Communications Magazine"
+  year: "2026"
+  type: "magazine"
+
+# ==========================================
+# Conference Proceedings
+# ==========================================
+- title: "From timestamps to versions: Version aoi in single-and multi-hop networks"
+  authors: "E. Delfani and N. Pappas"
+  venue: "IEEE INFOCOM 2026 - IEEE Conference on Computer Communications"
+  pages: "1-10"
+  year: "2026"
+  type: "conference"
+
+- title: "Optimizing Version AoI in Energy-Harvesting IoT: Model-Based and Learning-Based Approaches"
+  authors: "E. Delfani and N. Pappas"
+  venue: "2025 IEEE Conference on Network Function Virtualization and Software-Defined Networking (NFV-SDN)"
   pages: "1-6"
+  year: "2025"
+  type: "conference"
+
+- title: "Semantics-aware status updates with energy harvesting devices: Query version age of information"
+  authors: "E. Delfani and N. Pappas"
+  venue: "2024 22nd International Symposium on Modeling and Optimization in Mobile, Ad Hoc, and Wireless Networks (WiOpt)"
+  pages: "177-184"
   year: "2024"
+  type: "conference"
+
+- title: "Optimizing information freshness in IoT systems with update rate constraints: A token-based approach"
+  authors: "E. Delfani and N. Pappas"
+  venue: "2024 IFIP Networking Conference (IFIP Networking)"
+  pages: "213-221"
+  year: "2024"
+  type: "conference"
+
+- title: "Version Age-Optimal Cached Status Updates in a Gossiping Network with Energy Harvesting Sensor"
+  authors: "E. Delfani and N. Pappas"
+  venue: "2023 21st International Symposium on Modeling and Optimization in Mobile, Ad Hoc, and Wireless Networks (WiOpt)"
+  pages: "143-150"
+  year: "2023"
   type: "conference"
