@@ -5,8 +5,6 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% include base_path %}
-
 <style>
   .pub-category {
     margin-top: 2rem;
@@ -41,148 +39,54 @@ author_profile: true
   }
 </style>
 
-<div id="loading" style="font-size: 0.95rem; color: #666; margin: 1.5rem 0;">Loading publications...</div>
+{% assign journals = site.data.publications | where: "type", "journal" %}
+{% assign conferences = site.data.publications | where: "type", "conference" %}
+{% assign magazines = site.data.publications | where: "type", "magazine" %}
 
-<div id="journals-section" style="display:none;">
-  <h2 class="pub-category">Journal Articles</h2>
-  <ul class="pub-list" id="journal-list"></ul>
-</div>
+{% if journals.size > 0 %}
+<h2 class="pub-category">Journal Articles</h2>
+<ul class="pub-list">
+  {% assign total = journals.size %}
+  {% for pub in journals %}
+    {% assign num = total | minus: forloop.index0 %}
+    <li class="pub-item">
+      <span class="pub-number">[{{ num }}]</span>
+      {{ pub.authors | replace: "Erfan Delfani", "<strong>E. Delfani</strong>" | replace: "E. Delfani", "<strong>E. Delfani</strong>" }}, 
+      “{{ pub.title }},” 
+      <span class="pub-journal">{{ pub.venue }}</span>{% if pub.volume %}, vol. {{ pub.volume }}{% endif %}{% if pub.number %}, no. {{ pub.number }}{% endif %}{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
 
-<div id="conferences-section" style="display:none;">
-  <h2 class="pub-category">Conference Proceedings</h2>
-  <ul class="pub-list" id="conference-list"></ul>
-</div>
+{% if conferences.size > 0 %}
+<h2 class="pub-category">Conference Proceedings</h2>
+<ul class="pub-list">
+  {% assign total = conferences.size %}
+  {% for pub in conferences %}
+    {% assign num = total | minus: forloop.index0 %}
+    <li class="pub-item">
+      <span class="pub-number">[{{ num }}]</span>
+      {{ pub.authors | replace: "Erfan Delfani", "<strong>E. Delfani</strong>" | replace: "E. Delfani", "<strong>E. Delfani</strong>" }}, 
+      “{{ pub.title }},” 
+      <span class="pub-journal">{{ pub.venue }}</span>{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
 
-<div id="magazines-section" style="display:none;">
-  <h2 class="pub-category">Magazine Articles</h2>
-  <ul class="pub-list" id="magazine-list"></ul>
-</div>
-
-<script>
-  function formatIEEEAuthor(authorsStr) {
-    if (!authorsStr) return '';
-    const authors = authorsStr.split(/\s+and\s+/i).map(a => a.trim());
-    const formatted = authors.map(author => {
-      if (author.includes(',')) {
-        const parts = author.split(',');
-        const last = parts[0].trim();
-        const first = parts[1].trim();
-        const initials = first.split(/\s+/).map(n => n[0] ? n[0].toUpperCase() + '.' : '').join(' ');
-        return (initials ? initials + ' ' : '') + last;
-      } else {
-        const parts = author.split(/\s+/);
-        const last = parts.pop();
-        const initials = parts.map(n => n[0] ? n[0].toUpperCase() + '.' : '').join(' ');
-        return (initials ? initials + ' ' : '') + last;
-      }
-    });
-    if (formatted.length === 1) return formatted[0];
-    if (formatted.length === 2) return formatted[0] + ' and ' + formatted[1];
-    return formatted.slice(0, -1).join(', ') + ', and ' + formatted[formatted.length - 1];
-  }
-
-  function parseSimpleBibTeX(bibText) {
-    const entries = [];
-    const entryRegex = /@(\w+)\s*\{([^,]+),([\s\S]*?)(?=\n@|\n*$)/g;
-    let match;
-
-    while ((match = entryRegex.exec(bibText)) !== null) {
-      const type = match[1].toLowerCase();
-      const citeKey = match[2].trim();
-      const body = match[3];
-
-      const tags = {};
-      const fieldRegex = /([a-zA-Z]+)\s*=\s*(?:\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}|"([^"]*)"|(\d+))/g;
-      let fieldMatch;
-
-      while ((fieldMatch = fieldRegex.exec(body)) !== null) {
-        const key = fieldMatch[1].toLowerCase();
-        const value = fieldMatch[2] || fieldMatch[3] || fieldMatch[4] || '';
-        tags[key] = value.replace(/[\r\n]+/g, ' ').replace(/\s+/g, ' ').trim();
-      }
-
-      entries.push({ type, citeKey, tags });
-    }
-    return entries;
-  }
-
-  const bibPath = "{{ '/papers.bib' | relative_url }}";
-
-  fetch(bibPath)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to load papers.bib (Status: ' + response.status + ')');
-      }
-      return response.text();
-    })
-    .then(bibData => {
-      const entries = parseSimpleBibTeX(bibData);
-      const loader = document.getElementById('loading');
-      if (loader) loader.style.display = 'none';
-
-      if (!entries.length) {
-        loader.style.display = 'block';
-        loader.innerText = 'No publications found in papers.bib.';
-        return;
-      }
-
-      const groups = {
-        journals: [],
-        conferences: [],
-        magazines: []
-      };
-
-      entries.forEach(entry => {
-        const tags = entry.tags;
-        const author = formatIEEEAuthor(tags.author);
-        const rawTitle = (tags.title || '').replace(/[\{\}]/g, '').trim().replace(/[,.]$/, '');
-        const title = rawTitle ? `“${rawTitle},” ` : '';
-        const journal = (tags.journal || tags.booktitle || '').replace(/[\{\}]/g, '').trim();
-        const volume = tags.volume ? `vol. ${tags.volume}, ` : '';
-        const number = tags.number ? `no. ${tags.number}, ` : '';
-        const pages = tags.pages ? `pp. ${tags.pages.replace('--', '–')}, ` : '';
-        const year = tags.year ? tags.year + '.' : '';
-
-        const itemHTML = `${author}, ${title}<span class="pub-journal">${journal}</span>, ${volume}${number}${pages}${year}`;
-
-        const type = entry.type;
-        const journalLower = journal.toLowerCase();
-
-        if (type === 'article') {
-          if (journalLower.includes('magazine')) {
-            groups.magazines.push(itemHTML);
-          } else {
-            groups.journals.push(itemHTML);
-          }
-        } else if (type === 'inproceedings' || type === 'conference') {
-          groups.conferences.push(itemHTML);
-        }
-      });
-
-      function renderList(items, sectionId, listId) {
-        if (!items.length) return;
-        document.getElementById(sectionId).style.display = 'block';
-        const listElem = document.getElementById(listId);
-        const total = items.length;
-
-        items.forEach((content, index) => {
-          const number = total - index;
-          const li = document.createElement('li');
-          li.className = 'pub-item';
-          li.innerHTML = `<span class="pub-number">[${number}]</span>${content}`;
-          listElem.appendChild(li);
-        });
-      }
-
-      renderList(groups.journals, 'journals-section', 'journal-list');
-      renderList(groups.conferences, 'conferences-section', 'conference-list');
-      renderList(groups.magazines, 'magazines-section', 'magazine-list');
-    })
-    .catch(err => {
-      const loader = document.getElementById('loading');
-      if (loader) {
-        loader.innerText = 'Error loading publications: ' + err.message;
-        loader.style.color = '#c00';
-      }
-    });
-</script>
+{% if magazines.size > 0 %}
+<h2 class="pub-category">Magazine Articles</h2>
+<ul class="pub-list">
+  {% assign total = magazines.size %}
+  {% for pub in magazines %}
+    {% assign num = total | minus: forloop.index0 %}
+    <li class="pub-item">
+      <span class="pub-number">[{{ num }}]</span>
+      {{ pub.authors | replace: "Erfan Delfani", "<strong>E. Delfani</strong>" | replace: "E. Delfani", "<strong>E. Delfani</strong>" }}, 
+      “{{ pub.title }},” 
+      <span class="pub-journal">{{ pub.venue }}</span>{% if pub.volume %}, vol. {{ pub.volume }}{% endif %}{% if pub.number %}, no. {{ pub.number }}{% endif %}{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
