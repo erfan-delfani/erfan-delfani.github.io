@@ -21,7 +21,7 @@ I am a PhD Candidate in the <a href="https://liu.se/en/organisation/liu/ida" tar
 * Stochastic Modeling & Performance Analysis
 * Signal Processing
 
-I am always open to collaborations in applied and industrial research—please feel free to reach out!
+I am always open to research collaborations and passionate about bridging the gap between rigorous research and evolving industry demands. Please feel free to reach out to discuss potential synergies. 
 
 <style>
   .page__content ul {
