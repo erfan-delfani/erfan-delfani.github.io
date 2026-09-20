@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 My research interests include:
-- Semantic Wireless Communications
-- Age of Information
+- Wireless IoT Networks
+- Semantics-aware Communication
+- Signal Processing
 - Stochastic modeling
-- Non-terrestrial Networks
