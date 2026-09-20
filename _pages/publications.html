@@ -63,19 +63,27 @@ author_profile: true
     if (!authorsStr) return '';
     const authors = authorsStr.split(/\s+and\s+/i).map(a => a.trim());
     const formatted = authors.map(author => {
+      let formattedName = '';
       if (author.includes(',')) {
         const parts = author.split(',');
         const last = parts[0].trim();
         const first = parts[1].trim();
         const initials = first.split(/\s+/).map(n => n[0] ? n[0].toUpperCase() + '.' : '').join(' ');
-        return (initials ? initials + ' ' : '') + last;
+        formattedName = (initials ? initials + ' ' : '') + last;
       } else {
         const parts = author.split(/\s+/);
         const last = parts.pop();
         const initials = parts.map(n => n[0] ? n[0].toUpperCase() + '.' : '').join(' ');
-        return (initials ? initials + ' ' : '') + last;
+        formattedName = (initials ? initials + ' ' : '') + last;
       }
+
+      // Bold your name (matches "E. Delfani" or "Erfan Delfani")
+      if (/^(e\.\s*delfani|erfan\s*delfani)$/i.test(formattedName)) {
+        return `<strong>${formattedName}</strong>`;
+      }
+      return formattedName;
     });
+
     if (formatted.length === 1) return formatted[0];
     if (formatted.length === 2) return formatted[0] + ' and ' + formatted[1];
     return formatted.slice(0, -1).join(', ') + ', and ' + formatted[formatted.length - 1];
