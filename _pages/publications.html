@@ -62,7 +62,9 @@ author_profile: true
     color: #0366d6;
     text-decoration: underline;
   }
-  .pub-status {
+  .pub-subtitle {
+    font-size: 1rem;
+    font-weight: normal;
     color: #666;
     font-style: italic;
   }
@@ -75,13 +77,13 @@ author_profile: true
 
 <!-- Recent Works (Preprints / Under Review) -->
 {% if preprints.size > 0 %}
-<h2 class="pub-category">Recent Works</h2>
+<h2 class="pub-category">Recent Works <span class="pub-subtitle">(Under Review)</span></h2>
 <ul class="pub-bullet-list">
   {% for pub in preprints %}
     <li class="pub-bullet-item">
       {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, 
       “{{ pub.title }},” 
-      {% if pub.url %}[<a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer" class="pub-link">Preprint Link</a>]{% endif %}{% if pub.year %}, {{ pub.year }}{% endif %}, <span class="pub-status">(under review)</span>.
+      {% if pub.url %}[<a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer" class="pub-link">Preprint Link</a>]{% endif %}{% if pub.year %}, {{ pub.year }}.{% else %}.{% endif %}
     </li>
   {% endfor %}
 </ul>
