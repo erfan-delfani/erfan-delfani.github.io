@@ -83,7 +83,7 @@ author_profile: true
     <li class="pub-bullet-item">
       {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, 
       “{{ pub.title }},” 
-      {% if pub.url %}[<a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">Preprint Link</a>]{% endif %}{% if pub.year %}, {{ pub.year }}.{% else %}.{% endif %}
+      {% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">Preprint Link</a>{% endif %}{% if pub.year %}, {{ pub.year }}.{% else %}.{% endif %}
     </li>
   {% endfor %}
 </ul>
