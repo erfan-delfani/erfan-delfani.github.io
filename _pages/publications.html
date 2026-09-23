@@ -7,7 +7,7 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* Header Title & Icons aligned together */
+  /* Header Title & Icons aligned side-by-side */
   .pub-page-title-row {
     display: flex;
     align-items: center;
@@ -34,13 +34,19 @@ author_profile: true
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    height: 30px;
     border-radius: 6px;
     background-color: #f8f9fa;
     border: 1px solid #d0d7de;
     transition: all 0.2s ease-in-out;
     text-decoration: none !important;
+    box-sizing: border-box;
+  }
+  .pub-social-icon.scholar {
+    width: 32px;
+  }
+  .pub-social-icon.ieee {
+    padding: 0 7px;
   }
   .pub-social-icon:hover {
     transform: translateY(-2px);
@@ -54,7 +60,7 @@ author_profile: true
     background-color: #00629b;
     border-color: #00629b;
   }
-  .pub-social-icon.ieee:hover svg path {
+  .pub-social-icon.ieee:hover .ieee-text {
     fill: #ffffff;
   }
 
@@ -121,8 +127,8 @@ author_profile: true
 <div class="pub-page-title-row">
   <h1>Publications</h1>
   <div class="pub-header-icons">
-    <!-- Google Scholar Official Logo -->
-    <a href="https://scholar.google.com/citations?user=xO796JIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="pub-social-icon scholar" title="Google Scholar Profile">
+    <!-- Google Scholar Logo -->
+    <a href="https://scholar.google.com/citations?user=AP-srOsAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" class="pub-social-icon scholar" title="Google Scholar Profile">
       <svg width="20" height="20" viewBox="0 0 512 512">
         <path fill="#4285F4" d="M256 411.12L0 202.667 256 0l256 202.667-256 208.453z"/>
         <path fill="#356AC3" d="M256 411.12l157.067-127.68v131.2L256 512l-157.067-97.36v-131.2L256 411.12z"/>
@@ -130,10 +136,10 @@ author_profile: true
       </svg>
     </a>
 
-    <!-- IEEE Official Logo -->
+    <!-- Official IEEE Wordmark Logo -->
     <a href="https://ieeexplore.ieee.org/author/157932312628790" target="_blank" rel="noopener noreferrer" class="pub-social-icon ieee" title="IEEE Xplore Author Profile">
-      <svg width="22" height="22" viewBox="0 0 24 24">
-        <path fill="#00629B" d="M12 2L3 12l9 10 9-10L12 2zm0 3.2l6.1 6.8H13v-3.5h-2V12H5.9L12 5.2zm-4.5 8.3h9L12 18.8l-4.5-5.3z"/>
+      <svg width="42" height="15" viewBox="0 0 56 20">
+        <text x="0" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="900" letter-spacing="1.2" fill="#00629B" class="ieee-text">IEEE</text>
       </svg>
     </a>
   </div>
