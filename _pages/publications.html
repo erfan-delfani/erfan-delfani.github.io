@@ -21,6 +21,20 @@ author_profile: true
     padding-left: 0 !important;
     margin: 0 !important;
   }
+  .pub-bullet-list {
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+    padding-left: 1.3rem !important;
+  }
+  .pub-bullet-item {
+    margin-bottom: 0.85rem !important;
+    line-height: 1.6 !important;
+    font-size: 0.95rem !important;
+    color: #333 !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    text-align-last: left !important;
+  }
   .pub-item {
     margin-bottom: 1.2rem !important;
     line-height: 1.6 !important;
@@ -44,12 +58,36 @@ author_profile: true
   .pub-journal {
     font-style: italic;
   }
+  .pub-link {
+    color: #0366d6;
+    text-decoration: underline;
+  }
+  .pub-status {
+    color: #666;
+    font-style: italic;
+  }
 </style>
 
+{% assign preprints = site.data.publications | where: "type", "preprint" %}
 {% assign journals = site.data.publications | where: "type", "journal" %}
 {% assign magazines = site.data.publications | where: "type", "magazine" %}
 {% assign conferences = site.data.publications | where: "type", "conference" %}
 
+<!-- 0. Recent Works (Preprints / Under Review) -->
+{% if preprints.size > 0 %}
+<h2 class="pub-category">Recent Works</h2>
+<ul class="pub-bullet-list">
+  {% for pub in preprints %}
+    <li class="pub-bullet-item">
+      {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, 
+      “{% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer" class="pub-link">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %},” 
+      <span class="pub-journal">{{ pub.venue }}</span>{% if pub.year %}, {{ pub.year }}{% endif %}, <span class="pub-status">(under review)</span>.
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<!-- 1. Journal Papers -->
 {% if journals.size > 0 %}
 <h2 class="pub-category">Journal Papers</h2>
 <ul class="pub-list">
@@ -64,6 +102,7 @@ author_profile: true
 </ul>
 {% endif %}
 
+<!-- 2. Magazine Articles -->
 {% if magazines.size > 0 %}
 <h2 class="pub-category">Magazine Articles</h2>
 <ul class="pub-list">
@@ -78,6 +117,7 @@ author_profile: true
 </ul>
 {% endif %}
 
+<!-- 3. Conference Papers -->
 {% if conferences.size > 0 %}
 <h2 class="pub-category">Conference Papers</h2>
 <ul class="pub-list">
