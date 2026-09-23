@@ -26,7 +26,7 @@ author_profile: true
     line-height: 1.6 !important;
     font-size: 0.95rem !important;
     position: relative !important;
-    padding-left: 3.2rem !important;
+    padding-left: 3.4rem !important;
     color: #333 !important;
     text-align: justify !important;
     text-justify: inter-word !important;
@@ -38,7 +38,7 @@ author_profile: true
     top: 0;
     font-weight: bold;
     color: #222;
-    width: 2.8rem;
+    width: 3rem;
     text-align: left !important;
   }
   .pub-journal {
@@ -57,7 +57,7 @@ author_profile: true
   {% for pub in journals %}
     {% assign num = total | minus: forloop.index0 %}
     <li class="pub-item">
-      <span class="pub-number">[{{ num }}]</span>
+      <span class="pub-number">[J{{ num }}]</span>
       {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, “{{ pub.title }},” <span class="pub-journal">{{ pub.venue }}</span>{% if pub.volume %}, vol. {{ pub.volume }}{% endif %}{% if pub.number %}, no. {{ pub.number }}{% endif %}{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
     </li>
   {% endfor %}
@@ -71,7 +71,7 @@ author_profile: true
   {% for pub in magazines %}
     {% assign num = total | minus: forloop.index0 %}
     <li class="pub-item">
-      <span class="pub-number">[{{ num }}]</span>
+      <span class="pub-number">[M{{ num }}]</span>
       {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, “{{ pub.title }},” <span class="pub-journal">{{ pub.venue }}</span>{% if pub.volume %}, vol. {{ pub.volume }}{% endif %}{% if pub.number %}, no. {{ pub.number }}{% endif %}{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
     </li>
   {% endfor %}
@@ -85,7 +85,7 @@ author_profile: true
   {% for pub in conferences %}
     {% assign num = total | minus: forloop.index0 %}
     <li class="pub-item">
-      <span class="pub-number">[{{ num }}]</span>
+      <span class="pub-number">[C{{ num }}]</span>
       {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, “{{ pub.title }},” <span class="pub-journal">{{ pub.venue }}</span>{% if pub.pages %}, pp. {{ pub.pages | replace: "--", "–" }}{% endif %}{% if pub.year %}, {{ pub.year }}.{% endif %}
     </li>
   {% endfor %}
