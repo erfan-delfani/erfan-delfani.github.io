@@ -17,7 +17,7 @@
   url: "https://arxiv.org/abs/2607.04996"
 
 - title: "From information freshness to semantics of information and goal-oriented communications"
-  authors: "Luo, Jiping and Delfani, Erfan and Salimnejad, Mehrdad and Pappas, Nikolaos"
+  authors: "Jiping Luo, Erfan Delfani, Mehrdad Salimnejad, and Nikolaos Pappas"
   type: "preprint"
   venue: "arXiv preprint arXiv:2512.12758"
   year: "2025"
@@ -27,13 +27,13 @@
 # Journal Articles
 # ==========================================
 - title: "From AoI to QVAoI: Query-Based Semantics-Aware Scheduling for Energy-Harvesting IoT Systems"
-  authors: "E. Delfani and N. Pappas"
+  authors: "E. Delfani and Nikolaos Pappas"
   venue: "IEEE Transactions on Communications"
   year: "2026"
   type: "journal"
 
 - title: "Semantics-aware updates from remote energy harvesting devices to interconnected LEO satellites"
-  authors: "E. Delfani and N. Pappas"
+  authors: "E. Delfani and Nikolaos Pappas"
   venue: "IEEE Communications Letters"
   volume: "29"
   number: "8"
@@ -42,7 +42,7 @@
   type: "journal"
 
 - title: "Optimizing information freshness in constrained IoT systems: A token-based approach"
-  authors: "E. Delfani and N. Pappas"
+  authors: "E. Delfani and Nikolaos Pappas"
   venue: "IEEE Transactions on Communications"
   volume: "73"
   number: "8"
@@ -60,7 +60,7 @@
   type: "journal"
 
 - title: "Version age-optimal cached status updates in a gossiping network with energy harvesting sensor"
-  authors: "E. Delfani and N. Pappas"
+  authors: "E. Delfani and Nikolaos Pappas"
   venue: "IEEE Transactions on Communications"
   volume: "73"
   number: "4"
@@ -81,35 +81,35 @@
 # Conference Proceedings
 # ==========================================
 - title: "From timestamps to versions: Version aoi in single-and multi-hop networks"
-  authors: "E. Delfani and N. Pappas"
+  authors: "E. Delfani and Nikolaos Pappas"
   venue: "IEEE INFOCOM 2026 - IEEE Conference on Computer Communications"
   pages: "1-10"
   year: "2026"
   type: "conference"
 
 - title: "Optimizing Version AoI in Energy-Harvesting IoT: Model-Based and Learning-Based Approaches"
-  authors: "E. Delfani and N. Pappas"
+  authors: "E. Delfani and Nikolaos Pappas"
   venue: "2025 IEEE Conference on Network Function Virtualization and Software-Defined Networking (NFV-SDN)"
   pages: "1-6"
   year: "2025"
   type: "conference"
 
 - title: "Semantics-aware status updates with energy harvesting devices: Query version age of information"
-  authors: "E. Delfani and N. Pappas"
+  authors: "E. Delfani and Nikolaos Pappas"
   venue: "2024 22nd International Symposium on Modeling and Optimization in Mobile, Ad Hoc, and Wireless Networks (WiOpt)"
   pages: "177-184"
   year: "2024"
   type: "conference"
 
 - title: "Optimizing information freshness in IoT systems with update rate constraints: A token-based approach"
-  authors: "E. Delfani and N. Pappas"
+  authors: "E. Delfani and Nikolaos Pappas"
   venue: "2024 IFIP Networking Conference (IFIP Networking)"
   pages: "213-221"
   year: "2024"
   type: "conference"
 
 - title: "Version Age-Optimal Cached Status Updates in a Gossiping Network with Energy Harvesting Sensor"
-  authors: "E. Delfani and N. Pappas"
+  authors: "E. Delfani and Nikolaos Pappas"
   venue: "2023 21st International Symposium on Modeling and Optimization in Mobile, Ad Hoc, and Wireless Networks (WiOpt)"
   pages: "143-150"
   year: "2023"
