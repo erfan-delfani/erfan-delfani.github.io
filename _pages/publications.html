@@ -1,6 +1,5 @@
 ---
 layout: archive
-title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
@@ -8,43 +7,55 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* Header & Official Brand Icons */
-  .pub-header-wrapper {
+  /* Header Title & Icons aligned together */
+  .pub-page-title-row {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+  }
+  .pub-page-title-row h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111;
+    line-height: 1;
+  }
+  .pub-header-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   .pub-social-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background-color: #f6f8fa;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: #f8f9fa;
     border: 1px solid #d0d7de;
-    color: #444;
     transition: all 0.2s ease-in-out;
     text-decoration: none !important;
   }
-  .pub-social-icon i {
-    font-size: 1.15rem;
-    line-height: 1;
-  }
   .pub-social-icon:hover {
     transform: translateY(-2px);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
   }
   .pub-social-icon.scholar:hover {
-    background-color: #4285f4;
+    background-color: #f1f7fe;
     border-color: #4285f4;
-    color: #fff !important;
   }
   .pub-social-icon.ieee:hover {
     background-color: #00629b;
     border-color: #00629b;
-    color: #fff !important;
+  }
+  .pub-social-icon.ieee:hover svg path {
+    fill: #ffffff;
   }
 
   /* List & Category Styling */
@@ -106,17 +117,26 @@ author_profile: true
   }
 </style>
 
-<!-- Top Header with Official Icons -->
-<div class="pub-header-wrapper">
-  <!-- Official Google Scholar Icon -->
-  <a href="https://scholar.google.com/citations?user=xO796JIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="pub-social-icon scholar" title="Google Scholar Profile">
-    <i class="ai ai-google-scholar"></i>
-  </a>
+<!-- Publications Title with Icons Side-by-Side -->
+<div class="pub-page-title-row">
+  <h1>Publications</h1>
+  <div class="pub-header-icons">
+    <!-- Google Scholar Official Logo -->
+    <a href="https://scholar.google.com/citations?user=xO796JIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="pub-social-icon scholar" title="Google Scholar Profile">
+      <svg width="20" height="20" viewBox="0 0 512 512">
+        <path fill="#4285F4" d="M256 411.12L0 202.667 256 0l256 202.667-256 208.453z"/>
+        <path fill="#356AC3" d="M256 411.12l157.067-127.68v131.2L256 512l-157.067-97.36v-131.2L256 411.12z"/>
+        <path fill="#A0C3FF" d="M413.067 283.44v131.2L256 512V411.12l157.067-127.68z"/>
+      </svg>
+    </a>
 
-  <!-- Official IEEE Icon -->
-  <a href="https://ieeexplore.ieee.org/author/157932312628790" target="_blank" rel="noopener noreferrer" class="pub-social-icon ieee" title="IEEE Xplore Author Profile">
-    <i class="ai ai-ieee"></i>
-  </a>
+    <!-- IEEE Official Logo -->
+    <a href="https://ieeexplore.ieee.org/author/157932312628790" target="_blank" rel="noopener noreferrer" class="pub-social-icon ieee" title="IEEE Xplore Author Profile">
+      <svg width="22" height="22" viewBox="0 0 24 24">
+        <path fill="#00629B" d="M12 2L3 12l9 10 9-10L12 2zm0 3.2l6.1 6.8H13v-3.5h-2V12H5.9L12 5.2zm-4.5 8.3h9L12 18.8l-4.5-5.3z"/>
+      </svg>
+    </a>
+  </div>
 </div>
 
 {% assign preprints = site.data.publications | where: "type", "preprint" %}
