@@ -8,7 +8,7 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* Header & Profile Icons */
+  /* Header & Official Brand Icons */
   .pub-header-wrapper {
     display: flex;
     align-items: center;
@@ -19,33 +19,32 @@ author_profile: true
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     background-color: #f6f8fa;
     border: 1px solid #d0d7de;
-    color: #333;
+    color: #444;
     transition: all 0.2s ease-in-out;
     text-decoration: none !important;
   }
+  .pub-social-icon i {
+    font-size: 1.15rem;
+    line-height: 1;
+  }
   .pub-social-icon:hover {
     transform: translateY(-2px);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
   }
   .pub-social-icon.scholar:hover {
     background-color: #4285f4;
     border-color: #4285f4;
-    color: #fff;
+    color: #fff !important;
   }
   .pub-social-icon.ieee:hover {
     background-color: #00629b;
     border-color: #00629b;
-    color: #fff;
-  }
-  .pub-social-icon svg {
-    width: 17px;
-    height: 17px;
-    fill: currentColor;
+    color: #fff !important;
   }
 
   /* List & Category Styling */
@@ -99,10 +98,6 @@ author_profile: true
   .pub-journal {
     font-style: italic;
   }
-  .pub-link {
-    color: #0366d6;
-    text-decoration: underline;
-  }
   .pub-subtitle {
     font-size: 1rem;
     font-weight: normal;
@@ -111,20 +106,16 @@ author_profile: true
   }
 </style>
 
-<!-- Top Header with Icons -->
+<!-- Top Header with Official Icons -->
 <div class="pub-header-wrapper">
-  <!-- Google Scholar Icon -->
+  <!-- Official Google Scholar Icon -->
   <a href="https://scholar.google.com/citations?user=xO796JIAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="pub-social-icon scholar" title="Google Scholar Profile">
-    <svg viewBox="0 0 24 24">
-      <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
-    </svg>
+    <i class="ai ai-google-scholar"></i>
   </a>
 
-  <!-- IEEE Xplore Icon -->
+  <!-- Official IEEE Icon -->
   <a href="https://ieeexplore.ieee.org/author/157932312628790" target="_blank" rel="noopener noreferrer" class="pub-social-icon ieee" title="IEEE Xplore Author Profile">
-    <svg viewBox="0 0 24 24">
-      <path d="M8.5 4h7v2.5h-7zm0 13.5h7V20h-7zM2 9.25h20v5.5H2z"/>
-    </svg>
+    <i class="ai ai-ieee"></i>
   </a>
 </div>
 
