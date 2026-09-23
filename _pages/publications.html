@@ -45,8 +45,8 @@ author_profile: true
   .pub-social-icon.scholar {
     width: 32px;
   }
-  .pub-social-icon.ieee {
-    padding: 0 7px;
+  .pub-social-icon.ieee-xplore {
+    padding: 0 8px;
   }
   .pub-social-icon:hover {
     transform: translateY(-2px);
@@ -56,12 +56,9 @@ author_profile: true
     background-color: #f1f7fe;
     border-color: #4285f4;
   }
-  .pub-social-icon.ieee:hover {
-    background-color: #00629b;
+  .pub-social-icon.ieee-xplore:hover {
+    background-color: #f0f7fc;
     border-color: #00629b;
-  }
-  .pub-social-icon.ieee:hover .ieee-text {
-    fill: #ffffff;
   }
 
   /* List & Category Styling */
@@ -123,7 +120,7 @@ author_profile: true
   }
 </style>
 
-<!-- Publications Title with Icons Side-by-Side -->
+<!-- Publications Title with Google Scholar & IEEE Xplore Side-by-Side -->
 <div class="pub-page-title-row">
   <h1>Publications</h1>
   <div class="pub-header-icons">
@@ -136,10 +133,15 @@ author_profile: true
       </svg>
     </a>
 
-    <!-- Official IEEE Wordmark Logo -->
-    <a href="https://ieeexplore.ieee.org/author/157932312628790" target="_blank" rel="noopener noreferrer" class="pub-social-icon ieee" title="IEEE Xplore Author Profile">
-      <svg width="42" height="15" viewBox="0 0 56 20">
-        <text x="0" y="16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="900" letter-spacing="1.2" fill="#00629B" class="ieee-text">IEEE</text>
+    <!-- Official IEEE Xplore Logo -->
+    <a href="https://ieeexplore.ieee.org/author/157932312628790" target="_blank" rel="noopener noreferrer" class="pub-social-icon ieee-xplore" title="IEEE Xplore Author Profile">
+      <svg width="84" height="17" viewBox="0 0 135 26">
+        <!-- IEEE Section -->
+        <text x="0" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="23" font-weight="900" fill="#00629B" letter-spacing="0.5">IEEE</text>
+        <!-- Stylized Orange X -->
+        <path d="M 64 6 L 71 16 L 64.5 24 H 70 L 73.8 18.5 L 77.5 24 H 83 L 76.5 16 L 83.2 6 H 77.8 L 73.8 13.2 L 69.5 6 Z" fill="#F47A20"/>
+        <!-- plore Section -->
+        <text x="82" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#00629B">plore</text>
       </svg>
     </a>
   </div>
