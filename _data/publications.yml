@@ -1,4 +1,28 @@
 # ==========================================
+# Under Review
+# ==========================================
+- title: "From information freshness to semantics of information and goal-oriented communications"
+  authors: "Luo, Jiping and Delfani, Erfan and Salimnejad, Mehrdad and Pappas, Nikolaos"
+  type: "preprint"
+  venue: "arXiv preprint arXiv:2512.12758"
+  year: "2025"
+  url: "https://arxiv.org/abs/2512.12758"
+
+- title: "Version-Aware Communication in Multi-Hop IoT Networks with Feedback"
+  authors: "Erfan Delfani and Nikolaos Pappas"
+  type: "preprint"
+  venue: "arXiv preprint arXiv:2607.04996"
+  year: "2026"
+  url: "https://arxiv.org/abs/2607.04996"
+
+- title: "Adaptive Predictive Sampling and Communication for Real-time Monitoring"
+  authors: "Erfan Delfani and Nikolaos Pappas"
+  type: "preprint"
+  venue: "arXiv preprint arXiv:2609.26493"
+  year: "2026"
+  url: "https://arxiv.org/abs/2609.26493"
+
+# ==========================================
 # Journal Articles
 # ==========================================
 - title: "From AoI to QVAoI: Query-Based Semantics-Aware Scheduling for Energy-Harvesting IoT Systems"
