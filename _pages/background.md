@@ -35,7 +35,7 @@ author_profile: true
   }
   .cv-desc {
     display: block;
-    font-size: 0.86rem;
+    font-size: 0.77rem;
     color: #555;
     line-height: 1.4;
     margin-top: 0.1rem;
