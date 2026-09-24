@@ -7,7 +7,6 @@ author_profile: true
 {% include base_path %}
 
 <style>
-  /* Header Title & Icons aligned side-by-side */
   .pub-page-title-row {
     display: flex;
     align-items: center;
@@ -98,12 +97,13 @@ author_profile: true
   }
   .pub-bullet-square {
     position: absolute;
-    left: 0.4rem;
-    top: -0.05rem;
-    font-size: 1.1rem;
-    color: #222;
+    left: 0.35rem;
+    top: -0.15rem;
+    font-size: 1.35rem;
+    color: #111;
     line-height: 1.6;
     text-align: left !important;
+    user-select: none;
   }
   .pub-journal {
     font-style: italic;
@@ -147,7 +147,7 @@ author_profile: true
 <ul class="pub-list">
   {% for pub in preprints %}
     <li class="pub-item">
-      <span class="pub-bullet-square">&#9642;</span>
+      <span class="pub-bullet-square">&#9632;</span>
       {{ pub.authors | replace: "Erfan Delfani", "<strong>Erfan Delfani</strong>" | replace: "E. Delfani", "<strong>Erfan Delfani</strong>" }}, 
       “{{ pub.title }},” 
       {% if pub.url %}<a href="{{ pub.url }}" target="_blank" rel="noopener noreferrer">Preprint Link</a>{% endif %}{% if pub.year %}, {{ pub.year }}.{% else %}.{% endif %}
