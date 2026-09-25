@@ -30,12 +30,13 @@ author:
   location         : "Linköping, Sweden"
   employer         : #"Linköping University"
   uri              : #"https://liu.se/en/employee/erfde41"
-  email            : "erfan.delfani@liu.se" 
+  email            : "erfan.delfani@liu.se"
+  phone            : "+46 766031883"
 
   # Academic websites
   academia         : # URL
   arxiv            : #"https://arxiv.org/search/cs?searchtype=author&query=Delfani%2C+E"
-  googlescholar    : #"https://scholar.google.com/citations?user=AP-srOsAAAAJ&hl=en&oi=ao"
+  googlescholar    : "https://scholar.google.com/citations?user=AP-srOsAAAAJ&hl=en&oi=ao"
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            : "https://orcid.org/0000-0002-3026-394X"
