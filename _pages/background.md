@@ -139,7 +139,7 @@ author_profile: true
 <h2 class="cv-section-title" style="margin-top: 0.8rem;">Education</h2>
 
 <div class="cv-line">
-  <span class="cv-content"><strong>Ph.D. Candidate in Computer and Information Science</strong>, <a href="https://liu.se/en" target="_blank" rel="noopener noreferrer">Linköping University</a>, Linköping, Sweden</span>
+  <span class="cv-content"><strong>Ph.D. Candidate in Computer and Information Science</strong>, Linköping University, Linköping, Sweden</span>
   <span class="cv-date">2024 – Present</span>
 </div>
 
