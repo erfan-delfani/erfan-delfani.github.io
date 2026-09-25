@@ -76,7 +76,7 @@ author_profile: true
 
 <div class="cv-line">
   <span class="cv-content">
-    <strong>Industrial Secondment</strong>, <a href="https://mcs-datalabs.com/" target="_blank" rel="noopener noreferrer">MCS Data Labs</a>, Berlin, Germany, EU MSCA <a href="https://elixirion-mc.eu/" target="_blank" rel="noopener noreferrer">ELIXIRION</a> Project
+    <strong>Industrial Secondment</strong>, EU MSCA <a href="https://elixirion-mc.eu/" target="_blank" rel="noopener noreferrer">ELIXIRION</a> Project, <a href="https://mcs-datalabs.com/" target="_blank" rel="noopener noreferrer">MCS Data Labs</a>, Berlin, Germany
     <span class="cv-desc">Energy-efficient data management for IoMT wearable devices (with Dr. A. Schramm & Mr. F. Mousa).</span>
   </span>
   <span class="cv-date">Jul. 2026 – Oct. 2026</span>
@@ -84,7 +84,7 @@ author_profile: true
 
 <div class="cv-line">
   <span class="cv-content">
-    <strong>Industrial Secondment</strong>, <a href="https://www.orange.pl/" target="_blank" rel="noopener noreferrer">Orange Polska</a>, Warsaw, Poland, EU MSCA <a href="https://elixirion-mc.eu/" target="_blank" rel="noopener noreferrer">ELIXIRION</a> Project
+    <strong>Industrial Secondment</strong>, EU MSCA <a href="https://elixirion-mc.eu/" target="_blank" rel="noopener noreferrer">ELIXIRION</a> Project, <a href="https://www.orange.pl/" target="_blank" rel="noopener noreferrer">Orange Polska</a>, Warsaw, Poland
     <span class="cv-desc">Network management and resource allocation for integrated TN/NTN (hosted by Dr. L. Tomaszewski).</span>
   </span>
   <span class="cv-date">Jan. 2026 – Apr. 2026</span>
@@ -92,7 +92,7 @@ author_profile: true
 
 <div class="cv-line">
   <span class="cv-content">
-    <strong>Research Engineer</strong>, <a href="https://liu.se/en" target="_blank" rel="noopener noreferrer">Linköping University</a>, Linköping, Sweden, EU <a href="https://ether-project.eu/" target="_blank" rel="noopener noreferrer">ETHER</a> Project
+    <strong>Research Engineer</strong>, EU <a href="https://ether-project.eu/" target="_blank" rel="noopener noreferrer">ETHER</a> Project, <a href="https://liu.se/en" target="_blank" rel="noopener noreferrer">Linköping University</a>, Linköping, Sweden
     <span class="cv-desc">Semantics-aware communication for energy-efficient terrestrial and non-terrestrial networks (hosted by Prof. N. Pappas).</span>
   </span>
   <span class="cv-date">Aug. 2023 – Feb. 2024</span>
