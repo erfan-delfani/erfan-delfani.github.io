@@ -21,7 +21,7 @@ author_profile: true
     align-items: baseline;
     font-size: 0.92rem;
     line-height: 1.5;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.4rem;
     color: #333;
   }
   .cv-line strong {
@@ -33,67 +33,130 @@ author_profile: true
     text-justify: inter-word;
     text-align-last: left;
   }
-  .cv-desc {
-    display: block;
-    font-size: 0.77rem;
-    color: #555;
-    line-height: 1.4;
-    margin-top: 0.1rem;
-  }
   .cv-date {
     font-size: 0.85rem;
     color: #666;
     white-space: nowrap;
     margin-left: 1.2rem;
   }
-  .cv-line a {
+  .cv-line a, .cv-expand-item a {
     color: #0366d6;
     text-decoration: none;
   }
-  .cv-line a:hover {
+  .cv-line a:hover, .cv-expand-item a:hover {
     text-decoration: underline;
+  }
+
+  /* Interactive Expandable Items */
+  .cv-expand-item {
+    margin-bottom: 0.55rem;
+  }
+  .cv-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .cv-summary::-webkit-details-marker {
+    display: none;
+  }
+  .cv-summary-left {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+  }
+  .cv-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #555;
+    line-height: 1;
+    transition: all 0.15s ease-in-out;
+  }
+  .cv-expand-item:hover .cv-toggle-btn {
+    border-color: #0366d6;
+    color: #0366d6;
+  }
+  .cv-toggle-btn::before {
+    content: "+";
+  }
+  details[open] .cv-toggle-btn::before {
+    content: "−";
+  }
+  .cv-desc {
+    padding-left: 21px;
+    font-size: 0.77rem;
+    color: #555;
+    line-height: 1.45;
+    margin-top: 0.25rem;
+    margin-bottom: 0.35rem;
   }
 </style>
 
 <h2 class="cv-section-title" style="margin-top: 0.8rem;">Education</h2>
 
-<div class="cv-line" style="margin-bottom: 0.4rem;">
+<div class="cv-line">
   <span class="cv-content"><strong>Ph.D. Candidate in Computer and Information Science</strong>, <a href="https://liu.se/en" target="_blank" rel="noopener noreferrer">Linköping University</a>, Linköping, Sweden</span>
   <span class="cv-date">2024 – Present</span>
 </div>
 
-<div class="cv-line" style="margin-bottom: 0.4rem;">
+<div class="cv-line">
   <span class="cv-content"><strong>M.Sc. in Telecommunication Systems</strong>, Sharif University of Technology, Tehran, Iran</span>
   <span class="cv-date">2012 – 2014</span>
 </div>
 
-<div class="cv-line" style="margin-bottom: 0.4rem;">
+<div class="cv-line">
   <span class="cv-content"><strong>B.Sc. in Electrical Engineering (Electronics)</strong>, Razi University, Kermanshah, Iran</span>
   <span class="cv-date">2008 – 2012</span>
 </div>
 
 <h2 class="cv-section-title">Visiting Positions</h2>
 
-<div class="cv-line">
-  <span class="cv-content">
-    <strong>Industrial Secondment</strong>, EU MSCA <a href="https://elixirion-mc.eu/" target="_blank" rel="noopener noreferrer">ELIXIRION</a> Project, <a href="https://mcs-datalabs.com/" target="_blank" rel="noopener noreferrer">MCS Data Labs</a>, Berlin, Germany
-    <span class="cv-desc">Energy-efficient data management for IoMT wearables (with Dr. A. Schramm & Mr. F. Mousa).</span>
-  </span>
-  <span class="cv-date">Jul. 2026 – Oct. 2026</span>
-</div>
+<details class="cv-expand-item">
+  <summary class="cv-summary">
+    <span class="cv-summary-left">
+      <span class="cv-toggle-btn"></span>
+      <span><strong>Industrial Secondment</strong>, <a href="https://mcs-datalabs.com/" target="_blank" rel="noopener noreferrer">MCS Data Labs</a>, Berlin, Germany</span>
+    </span>
+    <span class="cv-date">Jul. 2026 – Oct. 2026</span>
+  </summary>
+  <div class="cv-desc">
+    Energy-efficient data management for IoMT wearables under the EU MSCA <a href="https://elixirion-mc.eu/" target="_blank" rel="noopener noreferrer">ELIXIRION</a> Project (hosted by Dr. A. Schramm & Mr. F. Mousa).
+  </div>
+</details>
 
-<div class="cv-line">
-  <span class="cv-content">
-    <strong>Industrial Secondment</strong>, EU MSCA <a href="https://elixirion-mc.eu/" target="_blank" rel="noopener noreferrer">ELIXIRION</a> Project, <a href="https://www.orange.pl/" target="_blank" rel="noopener noreferrer">Orange Polska</a>, Warsaw, Poland
-    <span class="cv-desc">Network management and resource allocation in telecom networks (hosted by Dr. L. Tomaszewski).</span>
-  </span>
-  <span class="cv-date">Jan. 2026 – Apr. 2026</span>
-</div>
+<details class="cv-expand-item">
+  <summary class="cv-summary">
+    <span class="cv-summary-left">
+      <span class="cv-toggle-btn"></span>
+      <span><strong>Industrial Secondment</strong>, <a href="https://www.orange.pl/" target="_blank" rel="noopener noreferrer">Orange Polska</a>, Warsaw, Poland</span>
+    </span>
+    <span class="cv-date">Jan. 2026 – Apr. 2026</span>
+  </summary>
+  <div class="cv-desc">
+    Network management and resource allocation in telecom networks under the EU MSCA <a href="https://elixirion-mc.eu/" target="_blank" rel="noopener noreferrer">ELIXIRION</a> Project (hosted by Dr. L. Tomaszewski).
+  </div>
+</details>
 
-<div class="cv-line">
-  <span class="cv-content">
-    <strong>Research Engineer</strong>, EU <a href="https://ether-project.eu/" target="_blank" rel="noopener noreferrer">ETHER</a> Project, <a href="https://liu.se/en" target="_blank" rel="noopener noreferrer">Linköping University</a>, Linköping, Sweden
-    <span class="cv-desc">Semantics-aware communication for energy-efficient TN/NTN networks (hosted by Prof. N. Pappas).</span>
-  </span>
-  <span class="cv-date">Aug. 2023 – Feb. 2024</span>
-</div>
+<details class="cv-expand-item">
+  <summary class="cv-summary">
+    <span class="cv-summary-left">
+      <span class="cv-toggle-btn"></span>
+      <span><strong>Research Engineer</strong>, <a href="https://liu.se/en" target="_blank" rel="noopener noreferrer">Linköping University</a>, Linköping, Sweden</span>
+    </span>
+    <span class="cv-date">Aug. 2023 – Feb. 2024</span>
+  </summary>
+  <div class="cv-desc">
+    Semantics-aware communication for energy-efficient TN/NTN networks under the EU <a href="https://ether-project.eu/" target="_blank" rel="noopener noreferrer">ETHER</a> Project (hosted by Prof. N. Pappas).
+  </div>
+</details>
