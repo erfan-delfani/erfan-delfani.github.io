@@ -47,14 +47,14 @@ author_profile: true
     text-decoration: underline;
   }
 
-  /* Interactive Expandable Items */
+  /* Sleek Modern Expandable Items */
   .cv-expand-item {
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.6rem;
   }
   .cv-summary {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     font-size: 0.92rem;
     line-height: 1.5;
     cursor: pointer;
@@ -66,40 +66,73 @@ author_profile: true
   }
   .cv-summary-left {
     display: flex;
-    align-items: baseline;
-    gap: 7px;
+    align-items: center;
+    gap: 9px;
   }
+
+  /* Elegant Geometric +/- Badge */
   .cv-toggle-btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 14px;
-    height: 14px;
-    border: 1px solid #999;
-    border-radius: 3px;
-    font-size: 11px;
-    font-weight: bold;
-    color: #555;
-    line-height: 1;
-    transition: all 0.15s ease-in-out;
+    width: 17px;
+    height: 17px;
+    border-radius: 4px;
+    background-color: #f3f4f6;
+    border: 1px solid #c7cbd1;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
   }
-  .cv-expand-item:hover .cv-toggle-btn {
-    border-color: #0366d6;
-    color: #0366d6;
-  }
+  /* Horizontal bar */
   .cv-toggle-btn::before {
-    content: "+";
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 1.8px;
+    background-color: #4b5563;
+    border-radius: 1px;
+    transition: background-color 0.2s ease;
+  }
+  /* Vertical bar */
+  .cv-toggle-btn::after {
+    content: "";
+    position: absolute;
+    width: 1.8px;
+    height: 9px;
+    background-color: #4b5563;
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.2s ease, background-color 0.2s ease;
+  }
+
+  /* Hover & Open States */
+  .cv-expand-item:hover .cv-toggle-btn {
+    background-color: #e8f0fe;
+    border-color: #1a73e8;
+  }
+  .cv-expand-item:hover .cv-toggle-btn::before,
+  .cv-expand-item:hover .cv-toggle-btn::after {
+    background-color: #1a73e8;
+  }
+  details[open] .cv-toggle-btn {
+    background-color: #e8f0fe;
+    border-color: #1a73e8;
   }
   details[open] .cv-toggle-btn::before {
-    content: "−";
+    background-color: #1a73e8;
   }
+  details[open] .cv-toggle-btn::after {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
   .cv-desc {
-    padding-left: 21px;
+    padding-left: 26px;
     font-size: 0.77rem;
     color: #555;
     line-height: 1.45;
-    margin-top: 0.25rem;
-    margin-bottom: 0.35rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.4rem;
   }
 </style>
 
