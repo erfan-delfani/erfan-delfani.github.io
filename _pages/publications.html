@@ -11,16 +11,16 @@ author_profile: true
   .pub-page-title-row {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
+    gap: 10px;
+    margin-top: 0.8rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.4rem;
     border-bottom: 1px solid #eee;
   }
   .pub-page-title-row h1 {
     margin: 0 !important;
     padding: 0 !important;
-    font-size: 2rem;
+    font-size: 1.65rem;
     font-weight: bold;
     color: #111;
     line-height: 1;
@@ -28,15 +28,15 @@ author_profile: true
   .pub-header-icons {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
   }
   .pub-social-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
     background-color: #f8f9fa;
     border: 1px solid #d0d7de;
     transition: all 0.2s ease-in-out;
@@ -44,8 +44,12 @@ author_profile: true
     box-sizing: border-box;
     color: #00629b;
   }
+  .pub-social-icon svg {
+    width: 17px;
+    height: 17px;
+  }
   .pub-social-icon i {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     line-height: 1;
   }
   .pub-social-icon:hover {
@@ -64,11 +68,12 @@ author_profile: true
 
   /* List & Category Styling */
   .pub-category {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.15rem;
+    font-weight: bold;
     border-bottom: 2px solid #eaeaea;
-    padding-bottom: 0.35rem;
+    padding-bottom: 0.3rem;
     color: #222;
   }
   .pub-list {
@@ -77,11 +82,11 @@ author_profile: true
     margin: 0 !important;
   }
   .pub-item {
-    margin-bottom: 1.2rem !important;
-    line-height: 1.6 !important;
-    font-size: 0.95rem !important;
+    margin-bottom: 0.85rem !important;
+    line-height: 1.5 !important;
+    font-size: 0.92rem !important;
     position: relative !important;
-    padding-left: 3.4rem !important;
+    padding-left: 3.2rem !important;
     color: #333 !important;
     text-align: justify !important;
     text-justify: inter-word !important;
@@ -92,16 +97,16 @@ author_profile: true
     left: 0;
     top: 0;
     font-weight: bold;
-    color: #222;
-    width: 3rem;
+    color: #111;
+    width: 2.8rem;
     text-align: left !important;
   }
   .pub-bullet-square {
     position: absolute;
     left: 0.75rem;
-    top: 0.55rem;
-    width: 9px;
-    height: 9px;
+    top: 0.5rem;
+    width: 7px;
+    height: 7px;
     background-color: #222;
     border-radius: 1px;
     display: inline-block;
@@ -110,10 +115,17 @@ author_profile: true
     font-style: italic;
   }
   .pub-subtitle {
-    font-size: 1rem;
+    font-size: 0.92rem;
     font-weight: normal;
     color: #666;
     font-style: italic;
+  }
+  .pub-item a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  .pub-item a:hover {
+    text-decoration: underline;
   }
 </style>
 
@@ -123,7 +135,7 @@ author_profile: true
   <div class="pub-header-icons">
     <!-- Google Scholar Logo -->
     <a href="https://scholar.google.com/citations?user=AP-srOsAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" class="pub-social-icon scholar" title="Google Scholar Profile">
-      <svg width="20" height="20" viewBox="0 0 512 512">
+      <svg viewBox="0 0 512 512">
         <path fill="#4285F4" d="M256 411.12L0 202.667 256 0l256 202.667-256 208.453z"/>
         <path fill="#356AC3" d="M256 411.12l157.067-127.68v131.2L256 512l-157.067-97.36v-131.2L256 411.12z"/>
         <path fill="#A0C3FF" d="M413.067 283.44v131.2L256 512V411.12l157.067-127.68z"/>
